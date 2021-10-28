@@ -13,6 +13,7 @@ namespace projeto_crud_cshap
 {
     public partial class frmCadastro : Form
     {
+        private ProdutosEstoque data = new ProdutosEstoque();
         public frmCadastro()
         {
             InitializeComponent();
@@ -20,15 +21,12 @@ namespace projeto_crud_cshap
 
         private void cmdCadastrar_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "SERVER = DESKTOP-GM7EVH8\\SQLEXPRESS; Database=Estoque; UID=sa; PWD=1234;";
-            cn.Open();
-
-            SqlCommand cd = new SqlCommand();
-            cd.Connection = cn;
-            cd.CommandText = $"Insert into ProdutosEstoque (nomeProduto, descricao, quantidade, preco, categoria) values ('{txtNome.Text}', '{txtDesc.Text}', '{txtQuantidade.Text}', '{float.Parse(txtPreco.Text)}', '{cbCategoria.SelectedItem}')";
-
-            cd.ExecuteNonQuery();
+            data.NomeProduto = txtNome.Text;
+            data.Descricao= txtDesc.Text;
+            data.Categoria = cbCategoria.Text;
+            data.Preco = float.Parse(txtPreco.Text);
+            data.Quantidade = int.Parse(txtQuantidade.Text);
+            data.Insert();
 
 
             MessageBox.Show("Registro incluido com sucesso!!");
@@ -37,6 +35,12 @@ namespace projeto_crud_cshap
             txtQuantidade.Clear();
             txtPreco.Clear();
             cbCategoria.SelectedItem = 0;
+            //cd.CommandText = $"Insert into ProdutosEstoque (nomeProduto, descricao, quantidade, preco, categoria) values ('{txtNome.Text}', '{txtDesc.Text}', '{txtQuantidade.Text}', '{float.Parse(txtPreco.Text)}', '{cbCategoria.SelectedItem}')";
+        }
+
+        private void frmCadastro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

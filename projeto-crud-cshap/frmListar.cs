@@ -13,6 +13,7 @@ namespace projeto_crud_cshap
 {
     public partial class frmListar : Form
     {
+        private ProdutosEstoque data = new ProdutosEstoque();
         public frmListar()
         {
             InitializeComponent();
@@ -20,11 +21,8 @@ namespace projeto_crud_cshap
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "SERVER = DESKTOP-GM7EVH8\\SQLEXPRESS; Database=Estoque; UID=sa; PWD=1234;";
-            cn.Open();
-
-            string sql = $"Select * from ProdutosEstoque where {comboBox1.SelectedItem} LIKE '{txtBusca.Text}%'";
+            string combo = comboBox1.SelectedItem.ToString();
+            data.ListBy(combo);
 
             SqlDataAdapter da = new SqlDataAdapter(sql, cn);
 

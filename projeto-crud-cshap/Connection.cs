@@ -11,24 +11,46 @@ namespace projeto_crud_cshap
 {
     class Connection
     {
-        public SqlConnection cn = new SqlConnection();
-        public SqlCommand cmd = new SqlCommand();
+        SqlConnection cn = new SqlConnection();
+        SqlCommand cd = new SqlCommand();
+        public SqlDataReader dr;
+        SqlDataAdapter da;
+        public DataSet ds;
 
-        public void InitiateConnection()
+        public void Connect()
         {
-            cn.ConnectionString = "SERVER = DESKTOP-GM7EVH8\\SQLEXPRESS; Database=Agenda; UID=sa; PWD=1234;";
+            cn.ConnectionString = "SERVER = F038847\\SQLEXPRESS; Database=Estoque2; UID=sa; PWD=123;";
             cn.Open();
-            cmd.Connection = cn;
-
         }
 
-        public void AdapterAndSet(string select)
+        public void Disconnect()
         {
-            SqlDataAdapter da = new SqlDataAdapter(select,cmd.ToString());
+            cn.Close();
+        }
 
-            DataSet ds = new DataSet();
+        public void Execute(string sql)
+        {
+            Connect();
+            cd.Connection = cn;
+            cd.CommandText = sql;
+            cd.ExecuteNonQuery();
+            Disconnect();
+        }
 
+        public void ListInfo(string sql)
+        {
+            Connect();
+            da = new SqlDataAdapter(sql, cn);
+            ds = new DataSet();
             da.Fill(ds);
+        }
+
+        public void Consult(string sql)
+        {
+            Connect();
+            cd.CommandText = sql;
+            cd.Connection = cn;
+            dr = cd.ExecuteReader();
         }
 
     }

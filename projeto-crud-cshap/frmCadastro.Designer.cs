@@ -168,6 +168,7 @@ namespace projeto_crud_cshap
             this.Controls.Add(this.label1);
             this.Name = "frmCadastro";
             this.Text = "frmCadastro";
+            this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

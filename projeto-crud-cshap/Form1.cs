@@ -21,7 +21,7 @@ namespace projeto_crud_cshap
         private void Form1_Load(object sender, EventArgs e)
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "SERVER = DESKTOP-GM7EVH8\\SQLEXPRESS; Database=Agenda; UID=sa; PWD=1234;";
+            cn.ConnectionString = "SERVER = F038847\\SQLEXPRESS; Database=Estoque; UID=sa; PWD=123;";
             cn.Open();
         }
 
