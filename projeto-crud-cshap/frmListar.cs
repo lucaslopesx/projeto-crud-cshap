@@ -24,11 +24,8 @@ namespace projeto_crud_cshap
             string combo = comboBox1.SelectedItem.ToString();
             data.ListBy(combo);
 
-            SqlDataAdapter da = new SqlDataAdapter(sql, cn);
 
-            DataSet ds = new DataSet();
 
-            da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
         }
