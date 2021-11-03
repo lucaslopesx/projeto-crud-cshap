@@ -22,12 +22,10 @@ namespace projeto_crud_cshap
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
             string combo = comboBox1.SelectedItem.ToString();
-            data.ListBy(combo);
+            data.Combo = combo;
+            data.Busca = txtBusca.Text;
 
-
-
-
-            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.DataSource = data.ListBy().Tables[0];
         }
 
         private void frmListar_Load(object sender, EventArgs e)

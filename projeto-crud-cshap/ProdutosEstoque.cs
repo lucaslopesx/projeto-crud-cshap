@@ -15,7 +15,8 @@ namespace projeto_crud_cshap
         public int Quantidade { get; set; }
         public string Categoria { get; set; }
         public float Preco { get; set; }
-        public float Busca { get; set; }
+        public string Busca { get; set; }
+        public string Combo { get; set; }
 
 
         private Connection connection = new Connection();
@@ -57,9 +58,9 @@ namespace projeto_crud_cshap
             connection.Disconnect();
             return connection.ds;
         }
-        public DataSet ListBy(string combo)
+        public DataSet ListBy()
         {
-            string sql = $"Select * from ProdutosEstoque where {combo} LIKE '{Busca}%'";
+            string sql = $"Select * from ProdutosEstoque where {Combo} LIKE '{Busca}%'";
             connection.ListInfo(sql);
             connection.Disconnect();
             return connection.ds;

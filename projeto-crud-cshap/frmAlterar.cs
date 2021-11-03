@@ -22,6 +22,10 @@ namespace projeto_crud_cshap
         private void cmdAlterar_Click(object sender, EventArgs e)
         {
             data.IdProduto = int.Parse(comboBox1.SelectedValue.ToString());
+            data.Preco = float.Parse(txtPreco.Text);
+            data.Quantidade = int.Parse(txtQuantidade.Text);
+            data.Categoria = txtCategoria.Text;
+            data.Descricao = txtDesc.Text;
             data.Update();
 
             

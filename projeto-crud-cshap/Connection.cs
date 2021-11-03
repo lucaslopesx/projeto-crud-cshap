@@ -19,7 +19,8 @@ namespace projeto_crud_cshap
 
         public void Connect()
         {
-            cn.ConnectionString = "SERVER = F038847\\SQLEXPRESS; Database=Estoque2; UID=sa; PWD=123;";
+            cn.ConnectionString = "SERVER = DESKTOP-GM7EVH8\\SQLEXPRESS; Database=Estoque; UID=sa; PWD=1234;";
+            //cn.ConnectionString = "SERVER = F038847\\SQLEXPRESS; Database=Estoque2; UID=sa; PWD=123;";
             cn.Open();
         }
 

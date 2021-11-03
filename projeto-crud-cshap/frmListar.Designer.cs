@@ -54,7 +54,6 @@ namespace projeto_crud_cshap
             this.comboBox1.Items.AddRange(new object[] {
             "nomeProduto",
             "descricao",
-            "preco",
             "categoria"});
             this.comboBox1.Location = new System.Drawing.Point(10, 13);
             this.comboBox1.Name = "comboBox1";
